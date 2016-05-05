@@ -1,0 +1,20 @@
+{
+  "name": "image-search",
+  "version": "0.0.1",
+  "description": "Image search abstraction layer microservice project for FCC",
+  "main": "image-search.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ellacodecamp/image-search"
+  },
+  "scripts": {
+    "start": "node image-search.js"
+  },
+  "author": "Ella Baron",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "express": "^4.13.4",
+    "mongodb": "^2.1.18"
+  }
+}
