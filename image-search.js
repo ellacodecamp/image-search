@@ -25,12 +25,7 @@ mongoClient.connect(mongoUrl, function (err, database) {
 });
 
 app.get("/api/imagesearch/:query", function (req, res) {
-  // console.log(req.params);
-  // console.log(req.query);
-
   var date = new Date();
-  console.log("date: " + date.toISOString());
-
   var query = req.params.query;
   var offset = 0;
   if (req.query["offset"]) {
@@ -44,8 +39,6 @@ app.get("/api/imagesearch/:query", function (req, res) {
   collection.insertOne({ "_id": date.toISOString(), "query": query }, function (err, insertResult) {
     if (err) {
       console.log("Error: " + err);
-    } else {
-      console.log("Insert result: " + insertResult);
     }
 
     var options = {
@@ -84,14 +77,12 @@ app.get("/api/imagesearch/:query", function (req, res) {
 });
 
 app.get("/api/latest/imagesearch", function (req, res) {
-  console.log("Request latest");
   collection.find({}).sort({ $natural : -1 }).limit(10).toArray(function (err, result) {
     res.set("Content-Type", "application/json");
     if (err) {
       console.log("Error: " + err);
       res.send(JSON.stringify({ "error": err.errmsg}));
     } else {
-      console.log(result);
       var returnResult = [];
       for (var i = 0; i < result.length; i++) {
         var item = {

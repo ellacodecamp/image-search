@@ -12,7 +12,7 @@ The service can be found running on [Heroku](https://image-search-ellacodecamp.h
 
 ## Running on Heroku
 
-To run this app on Heroku, configure MongoDB add on and the following environment variables:
+To run this app on Heroku, configure MongoDB add-on and the following environment variables:
 
 * ```MONGO_URI```
 * ```APP_CX``` - context of the custom search query configured on Google website
